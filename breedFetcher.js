@@ -15,7 +15,12 @@ const breedData = function(breedName, callback) {
   //Access the first entry in the data array and print out the description
 
   const descrp = data[0].description
-
+  
+  // if error
+  if(error) {
+    return callback(error,null); 
+  }
+  
   if(data[0]) {
       let desc = data[0]['description'];
       return callback(null,desc);
