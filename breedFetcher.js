@@ -4,18 +4,16 @@ const request = require('request');
 //URL which will return cat breed results.
 const breedData = function(breedName, callback) {
 
-  const url = 'https://api.thecatapi.com/v1/breeds/search';
+  const url = 'https://api.thecatapi.com/v1/breeds/search?q=sib';
 
   request(url, function(error, respnose, body){
     // if error
+
     if(error) {
       return callback(error,null); 
     
     }
-
-
-  
-
+    
   // convert the JSON string into an actual object
 
   const data = JSON.parse(body);
@@ -25,7 +23,7 @@ const breedData = function(breedName, callback) {
 
   //Access the first entry in the data array and print out the description
 
-  // const descrp = data[0].description
+  // let descrpt = data[0].description
   
   if(data[0]) {
       let descpt = data[0]['description'];
